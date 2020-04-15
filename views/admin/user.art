@@ -1,0 +1,58 @@
+{{extend "./common/layout.art"}}
+{{block "link"}}<link rel="stylesheet" href="./css/article.css">{{/block}}
+{{block "main"}}
+    <div class="right_body fl">
+            {{include "./common/header.art"}}
+            <div class="main">
+                <div class="show_title">
+                    <div class="left_title">
+                        <h1>用户</h1><span>找到一个用户</span>
+                    </div>
+                    <div class="right_title"><a class="btn btn-primary" href="/admin/user_edit">新增用户<a></div>
+                </div>
+                <div class="show_container">
+                    <table class="table table-striped table-bordered">
+                        <tr>
+                            <th>ID</th>
+                            <th>用户名</th>
+                            <th>邮箱</th>
+                            <th>角色</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                        {{each user}}
+                        <tr>
+                            <td>{{@$value._id}}</td>
+                            <td>{{$value.name}}</td>
+                            <td>{{$value.email}}</td>
+                            <td>{{$value.role=="admin" ? "管理员":"普通用户"}}</td>
+                            <td>{{$value.isUse=="0" ? "启用":"禁用"}}</td>
+                            <td><a href="/admin/user_edit?id={{@$value._id}}"><img src="./images/logo.jpg" alt=""></a><span class="icon-remove"  data-toggle="modal" data-target="#myModal" data-id={{@$value._id}} >x</span></td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                </div>
+                <div class="lg_10">
+                    <ul class="pagination">
+                        <li style="display:{{page-0-1<1 ? 'none':'inline'}}"><a href="/admin/user?page=<%=page-0-1%>">&laquo;</a></li>
+                        <% for (var i = 1; i <= pages; i++) { %>
+                        <li><a href="/admin/user?page=<%=i%>">{{i}}</a></li>
+                        <% } %>
+                        <li style="display:{{page-0+1>pages ? "none":"inline"}}"><a href="/admin/user?page=<%=page-0+1%>" >&raquo;</a></li>
+                    </ul>
+                </div>
+            </div>
+    </div>
+     <!-- 模拟框的使用:点击删除跳出框 -->
+    {{include "./common/modal.art"}}
+{{/block}}
+{{block "script"}}
+<script type="text/javascript">
+     $(".icon-remove").on("click",function () {
+         <!-- 把要删除id 设置为input 隐藏框的value值 -->
+         var id = $(this).attr("data-id");
+         $("#User_id").val(id);
+      });
+        
+</script>      
+{{/block}}

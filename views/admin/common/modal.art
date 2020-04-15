@@ -1,0 +1,22 @@
+ 
+ <div class="modal fade confirm-modal" id="myModal">
+        <div class="modal-dialog modal-lg">
+            <form class="modal-content" method = "get" action = "/admin/delect">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                    <h4 class="modal-title">请确定</h4>
+                </div>
+                <div class="modal-body">
+                    <p>你确定要删除这个{{currentActive == "user" ? "用户":"文章"}}吗？</p>
+                    <input type="hidden" name="id" id="User_id">
+                    <input type="hidden" name="role" value={{currentActive}}>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <input type="submit" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+    </div>

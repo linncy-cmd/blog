@@ -1,0 +1,57 @@
+{{extend "./common/layout.art"}}
+{{block "main"}}
+ <div class="right_body fl">
+             {{include "./common/header.art"}}
+            <div class="main">
+                <div class="tip"></div>
+                <div class="tip_error"></div>
+                <div class="container">
+                    <form action={{link}} method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="">标题</label>
+                            <input type="text" class="form-control" name="title" placeholder="请输入文章标题" value="{{article && article.title}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">作者</label>
+                            <input type="text" class="form-control" name="author" placeholder="请输入作者" value={{userInfo && userInfo.id}}>
+                        </div>
+                        <div class="form-group">
+                            <label for="">发布时间</label>
+                            <input type="date" class="form-control" name="publicData" value="{{article && dateformat(article.publicData,"yyyy-mm-dd")}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">文章封面</label><br>
+                            <input type="file" class="form-control" name="cover" id="file" value="{{article && article.cover}}">
+                        </div>
+                        <div><img src="" id="preview"></div>
+                        
+                        <div class="form-group">
+                            <label for="">内容</label><br>
+                            <textarea name="content" class="form-control" id="" cols="30" rows="10" 
+                            >{{article && article.content}}</textarea>
+                        </div>
+                        <input type="submit" class="btn btn-primary">
+                    </form>
+                </div>
+            </div>
+        </div>
+{{/block}}
+{{block "script"}}
+<script>
+      $("#file").change(function() {
+        //创建文件读取对象
+        var reader = new FileReader();
+        //异步方法，没有返回值
+        reader.readAsDataURL(this.files[0]);
+        //用户选择的文件列表：this.files,multiple属性是允许选择多个文件
+        //使用onload监听
+        reader.onload = function() {
+            $("#preview").attr({
+                "src": reader.result,
+                width: "50px",
+                height: "50px"
+            });
+        }
+    });
+</script>
+{{/block}}

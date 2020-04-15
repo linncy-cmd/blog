@@ -1,0 +1,4 @@
+const mongoose = require('mongoose');
+mongoose.connect("mongodb://linncy:linncy@localhost/blog", { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log("数据库连接成功"))
+    .catch(result => console.log("数据库连接失败"));

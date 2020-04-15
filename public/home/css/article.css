@@ -1,0 +1,32 @@
+.container {
+    margin-top: 22px;
+    padding: 40px 30px;
+    background-color: rgb(253, 255, 252);
+}
+
+.container span {
+    padding: 0 2px;
+}
+
+.article_form {
+    margin-top: 25px;
+}
+
+.btn {
+    width: 75px;
+    height: 20px;
+    background-color: rgb(219, 221, 218);
+    line-height: 20px;
+}
+
+.bg_r {
+    border-right: 2px solid #000;
+}
+
+.article_content {
+    margin: 42px 0;
+}
+
+.show_common {
+    margin: 42px 0;
+}

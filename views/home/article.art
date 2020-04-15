@@ -1,0 +1,57 @@
+{{extend "./common/layout.art"}}
+{{block "link"}} <link rel="stylesheet" href="/home/css/article.css">{{/block}}
+{{block "main"}}
+    <!-- 头部导航 -->
+    {{include "./common/header.art"}}
+    <div class="article">
+        <div class="w1100">
+            <div class="container">
+                <div class="article_header">
+                    <h3 class="article_title">{{article.title}}</h3>
+                    <div class="article_info">
+                        <span class="author">{{article.author.name}}</span><span>{{dateformat(article.publicData,"yyyy-mm-dd")}}</span>
+                    </div>
+                </div>
+                <!-- //相关文章内容 -->
+                <div class="article_content">
+                {{article.content}}
+                </div>
+                <!-- 评论区域 -->
+                    <div class="article_common">
+                    {{if userInfo!=null}}
+                    <h4>评论</h4>
+                    <form action="/home/article" method="post" class="article_form">
+                        <textarea name="content" id="" cols="145" rows="10"></textarea>
+                        <input type="hidden" value="{{@userInfo && userInfo._id}}" name ="uid" id="uid">
+                        <input type="hidden" value="{{@article._id}}" name="aid">
+                        <input class="btn" type="submit" value="提交">
+                    </form>
+                    {{else}}
+                    <h4>请先登录，才能评论</h4>
+                    {{/if}}
+                </div>
+                {{if common!=false}}
+                <!-- 评论展示区域 -->
+                {{each common}}
+                <div class="show_common">
+                    <span class="author">{{$value.uid.name}}</span><span class="bg_r">{{dateformat($value.publicData,'yyyy-mm-dd')}}</span><span>{{$value.uid.email}}</span>
+                    <div class="">{{$value.content}}</div>
+                </div>
+                {{/each}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+{{/block}}
+{{block "script"}}
+<script>
+    var btn = document.querySelector(".btn");
+    var uid = document.querySelector("#uid");
+    btn.onclick = function() {
+        if (uid.value.trim().length == 0) {
+            alert("请登录")
+            return false;
+        }
+    }
+</script>
+{{/block}}

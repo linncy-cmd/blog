@@ -1,0 +1,41 @@
+{{extend "./common/layout.art"}}
+{{block "main"}}
+     <div class="right_body fl">
+            {{include "./common/header.art"}}
+            <div class="main">
+                <div class="tip ">{{ user && user._id}}</div>
+                <div class="tip_error">{{message && message}}</div>
+                <div class="container">
+                    <form action="{{link}}" method="post" >
+                        <div class="form-group">
+                            <label for="">用户名</label>
+                            <input type="text" class="form-control" name="name" placeholder="请输入用户名" value={{user && user.name}}>
+                        </div>
+                        <div class="form-group">
+                            <label for="">邮箱</label>
+                            <input type="email" class="form-control" name="email" placeholder="请输入邮箱" value={{user && user.email}}>
+                        </div>
+                        <div class="form-group">
+                            <label for="">密码</label>
+                            <input type="password" class="form-control" name="password" placeholder="请输入密码">
+                        </div>
+                        <div class="form-group">
+                            <label for="">角色</label><br>
+                            <select name="role" class="form-control">
+                                <option value="normal" {{user && user.role=="normal" ? "selected" : ""}}>普通用户</option>
+                                <option value="admin"  {{user && user.role=="admin" ? "selected":""}}>管理员</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="">状态</label><br>
+                            <select name="isUse" class="form-control">
+                                <option value="0" {{user && user.isUse == "0" ? "selected" : ""}}>启用</option>
+                                <option value="1" {{user && user.isUse == "1" ? "selected" : ""}}>禁用</option>
+                            </select>
+                        </div>
+                        <input type="submit" class="btn btn-primary" value="{{btn}}">
+                    </form>
+                </div>
+            </div>
+        </div>
+{{/block}} 

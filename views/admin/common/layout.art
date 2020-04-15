@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/index.css">
+    {{block 'link'}}{{/block}}
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="blog_body">
+        <div class="left_body fl">
+            <div class="title">博客管理员</div>
+            <div class="main">
+                <ul>
+                    <li class={{currentActive =="user" ? "active" :""}}>
+                        <a href="/admin/user">
+                            <span>用户管理</span>
+                        </a>
+                    </li>
+                    <li class={{currentActive =="article" ? "active":""}}>
+                        <a href="/admin/article">
+                            <span>文章管理</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        {{block "main"}}{{/block}}
+    </div>
+</body>
+
+<script src="./js/jquery-1.12.2.min.js"></script>
+<script src="./js/bootstrap.js"></script>
+{{block 'script'}}{{/block}}
+</html>

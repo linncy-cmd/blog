@@ -1,0 +1,11 @@
+<div class="title">
+    <div class="dropdown role">
+        <p class="btn dropdown-toggle" data-toggle="dropdown">{{userInfo && userInfo.name}}
+            <span class="caret"></span>
+        </p>
+        <ul class="dropdown-menu">
+            <li><a href="#">个人资料</a></li>
+            <li><a href="/admin/logout">退出登录</a></li>
+        </ul>
+    </div>
+</div>

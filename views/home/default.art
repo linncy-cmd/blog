@@ -1,0 +1,37 @@
+{{extend "./common/layout.art"}}
+{{block "link"}}<link rel="stylesheet" href="/home/css/index.css">{{/block}}
+{{block "main"}}
+    <!-- 头部导航 -->
+   {{include "./common/header.art"}}
+    <!-- 内容区域 -->
+    <div class="w1100 clearfix">
+        <ul class="list">
+        {{each article.records}}
+            <li class="{{$index%2==0 ? "fr" :"fl"}}">
+                <a href="/home/article?id={{@$value._id}}">
+                    <img src="{{$value.cover}}" alt="" height="187" width="420">
+                </a>
+                <div class="container">
+                    <h2 class="title"><a href="/home/article?id={{@$value._id}}">{{$value.title}}</a></h2>
+                    <span class="author">{{$value.author.name}}</span><span>{{dateformat($value.publicData,"yyyy-mm-dd")}}</span>
+                    <div class="content">{{$value.content.substr(0,60)+"......"}}</div>
+                </div>
+            </li>
+        {{/each}}
+        </ul>
+    </div>
+    <!-- //页码区域 -->
+    <div class="footer w1100">
+        <ul class="pagination cent">
+            {{if article.page > 1}}
+            <li><a href="/home/default?page={{article.page -1}}">&laquo;</a></li>
+            {{/if}}
+            {{each article.display}}
+            <li><a href="/home/default?page={{$value}}">{{$value}}</a></li>
+            {{/each}}
+            {{if article.page <article.pages}}
+            <li><a href="/home/default?page={{article.page -0 +1}}">&raquo;</a></li>
+            {{/if}}
+        </ul>
+    </div>
+{{/block}}

@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.left_body {
+    width: 25%;
+    height: 890px;
+}
+
+.right_body {
+    width: 75%;
+    height: 890px;
+}
+
+.left_body .title {
+    height: 85px;
+    text-align: center;
+    line-height: 85px;
+    font-size: 30px;
+    color: white;
+    background-color: rgb(18, 122, 235);
+}
+
+.left_body .main {
+    background-color: rgb(22, 31, 46);
+    overflow: hidden;
+    height: 100%;
+}
+
+.left_body ul {
+    margin-top: 90px;
+    list-style: none;
+    position: relative;
+}
+
+.left_body ul li {
+    height: 60px;
+    line-height: 60px;
+}
+
+.left_body ul li.active {
+    border-left: 5px solid blue
+}
+
+.left_body ul span {
+    position: absolute;
+    left: 25px;
+    color: white;
+}
+
+
+/* 右边 */
+
+.right_body .title {
+    height: 85px;
+    position: relative;
+    background-color: rgb(253, 255, 252);
+}
+
+.right_body .role {
+    position: absolute;
+    right: 80px;
+    top: 40px;
+    width: 70px;
+    height: 25px;
+}
+
+.role ul {
+    list-style: none;
+}
+
+#role_logo {
+    width: 0px;
+    height: 0px;
+    margin-top: 9px;
+    margin-left: 2px;
+    float: left;
+    border: 5px solid transparent;
+    border-top: 5px solid #000;
+}
+
+.right_body .main {
+    height: 100%;
+    background-color: rgb(248, 250, 249);
+}
+
+.right_body .tip {
+    height: 60px;
+    width: 1140px;
+    margin: 0 auto;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 60px;
+}
+
+.right_body .tip_error {
+    height: 50px;
+    width: 1140px;
+    margin: 0 auto;
+    color: red;
+}
+
+.right_body form {
+    background-color: white;
+    padding: 20px 20px;
+}

@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(243, 245, 242);
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.header {
+    height: 50px;
+    background-color: rgb(61, 68, 78);
+}
+
+.w1100 {
+    width: 1100px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.nav,
+.nav ul {
+    height: 100%;
+}
+
+.nav ul li {
+    list-style: none;
+    float: left;
+    line-height: 50px;
+    padding: 0 18px;
+    font-weight: 700;
+}
+
+.nav ul li.active {
+    background-color: rgb(255, 122, 3);
+}
+
+.nav ul li a {
+    color: #fff;
+}
+
+.author {
+    color: red;
+    box-sizing: border-box;
+    border-right: 2px solid #000;
+}

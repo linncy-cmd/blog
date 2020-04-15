@@ -1,0 +1,20 @@
+ <div class="header">
+        <div class="w1100">
+            <!-- 网页logo -->
+            <div class="logo fl">
+                <a href="#"><img src="" alt=""></a>
+            </div>
+            <!-- 网页导航 -->
+            <div class="nav fr">
+                <ul>
+                    <li class={{currentPage =="default" ? "active":""}}><a href="/home/default">首页</a></li>
+                    {{if userInfo==null}}
+                    <li><a href="/admin/login">登录</a></li>
+                    {{else}}
+                    <li><a href="/home/logout">退出登录</a></li>
+                    {{/if}}
+                </ul>
+            </div>>
+        </div>
+
+    </div>

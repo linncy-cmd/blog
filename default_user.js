@@ -14,10 +14,22 @@ async function origin() {
             isUse: "1"
         });
         user.save();
+        mkdirsSync(path.join(__dirname, "public", "uploads"));
         console.log("初始化管理员成功，你的管理员邮箱为admin@list.cn,密码为12345678");
     } else {
         console.log("初始化管理员成功，你的管理员邮箱为admin@list.cn,密码为12345678")
     }
 
+}
+
+function mkdirsSync(dirname) {
+    if (fs.existsSync(dirname)) {
+        return true;
+    } else {
+        if (mkdirsSync(path.dirname(dirname))) {
+            fs.mkdirSync(dirname);
+            return true;
+        }
+    }
 }
 origin();
